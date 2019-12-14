@@ -4,13 +4,13 @@
     <title>Desafio Intranett</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-   <nav class="navbar fixed-top navbar-dark bg-dark">
+   <nav class="navbar fixed-top navbar-dark bg-dark">    
+     <%= link_to image_tag("task_logo_white.jpeg", :border=>0, :class => 'dock-item', size: "40x40") %>
       <a class="navbar-brand " href="#">Intranett - Gerenciamento de Tarefas</a>
       <span class="navbar-text">
         <% if current_user.present? %>
@@ -20,6 +20,7 @@
       </span>
    </nav>
 
+   <div id = "alert" style="margin-top:60px;">
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
     <% end %>
@@ -27,10 +28,11 @@
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
 
-    <div style="text-align:center; margin-top:100px">    
-      <div style="width:75%; display: inline-block">    
-        <%= yield %>    
-        <hr>  
+   </div>  
+
+    <div style="text-align:center; margin-top:100px; margin-bottom:100px">    
+      <div style="width:80%; display: inline-block;">    
+        <%= yield %>        
       </div>
     </div>
 
@@ -40,8 +42,16 @@
     <div class="container text-center">
       <small>Copyright &copy; Intranett Challenge</small>
     </div>
-    </footer>  
+    </footer>    
 
   </body>
 </html>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  setTimeout(function(){
+    $('#alert').fadeOut("slow");
+  }, 2000);
+ })
+</script>
 

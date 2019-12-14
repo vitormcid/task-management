@@ -1,7 +1,10 @@
 class TasksController < ApplicationController
   respond_to :html, :json		
   def index
-  	@tasks = Task.all
+    # to define order in datatable
+    in_progress = Task.where(status: "in_progress")
+    others = Task.where("status != ?", "in_progress")
+  	@tasks = in_progress + others
   end
 
   def new
@@ -14,7 +17,7 @@ class TasksController < ApplicationController
     if @task.valid? 
       flash[:notice] = "Tarefa criada com sucesso"
     else  
-      flash[:errors] = @task.errors.full_messages
+      flash[:alert] = @task.errors.full_messages
     end      
     redirect_to tasks_path 
   end	 

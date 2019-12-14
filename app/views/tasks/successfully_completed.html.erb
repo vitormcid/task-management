@@ -6,11 +6,11 @@
         <%= simple_form_for(@task, remote: request.xhr?, html: { data: { modal: true } }) do |f| %>
             <div class="form-group">
                 <label for="name">Data de Início</label>
-                <%= f.datetime_field :start_at, :readonly => true,  placeholder: @task.start_at ,:class => 'form-control' %>                   
+               <%= f.text_field :start_at, :value => (f.object.start_at.strftime('%m/%d/%Y  %H:%M') if f.object.start_at), :readonly => true, :class => 'form-control' %>                       
             </div>
             <div class="form-group">
                 <label for="name">Data de Término </label>
-                <%= f.datetime_field :end_at, placeholder: "Digite a data de término",:class => 'form-control' %>    
+                <%= f.datetime_field :end_at, :value => (f.object.end_at.strftime('%m/%d/%Y  %H:%M') if f.object.end_at) , placeholder: "Digite a data de término",:class => 'form-control', required: true %>    
             </div>            
 
             <button type="submit" class="btn btn-dark float-right" id="btnLogin" style="padding-right:20px;">Finalizar</button>

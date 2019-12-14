@@ -21,10 +21,10 @@
                 <tr>
                     <td><%=task.id%></td>               
                     <td><%=task.name%></td>               
-                    <td><%=task.start_at%></td>               
-                    <td><%=task.end_at%></td>               
+                    <td><%=task.start_at&.strftime("%d/%m/%y %H:%M")%></td>               
+                    <td><%=task.end_at&.strftime("%d/%m/%y %H:%M")%></td>               
                     <td><%=task.cancellation_justification%></td>               
-                    <td><%=task.status%></td>               
+                    <td><%=task.status_text%></td>               
                     <td><%=task.user&.email%></td>               
                     <td>  
                      <%=render "options", task: task%>
@@ -48,6 +48,11 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $('#tasks').DataTable();
+        $('#tasks').DataTable( {
+            "lengthMenu": [[10, 15 ,25, 50, -1], [10, 15, 25, 50, "All"]],
+            "ordering": false
+        }
+        );
+
     });
 </script>

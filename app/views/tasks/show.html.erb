@@ -1,30 +1,29 @@
 <div class="card card-outline-secondary">
     <div class="card-header">
-        <h3 class="mb-0"><%="#{@task.name} - #{@task.status}" %></h3>
+        <h3 class="mb-0"><%="#{@task.name} - #{@task.status_text}" %></h3>
     </div>
     <div class="card-body">
         <%= simple_form_for(@task, remote: request.xhr?, html: { data: { modal: true } }) do |f| %>
             <div class="form-group">
                 <label for="name">Data de Início</label>
-                <%= f.datetime_field :start_at, :readonly => true,  placeholder: @task.start_at ,:class => 'form-control' %>   
+                <%= f.text_field :start_at, :value => (f.object.start_at.strftime('%m/%d/%Y  %H:%M') if f.object.start_at), :readonly => true, :class => 'form-control' %>        
             </div>
 
             <div class="form-group">
                 <label for="name">Data de Término</label>
-                <%= f.datetime_field :end_at, :readonly => true,  placeholder: @task.end_at ,:class => 'form-control' %>   
+                <%= f.text_field :end_at, :value => (f.object.end_at.strftime('%m/%d/%Y  %H:%M') if f.object.end_at), :readonly => true, :class => 'form-control' %>                   
             </div>
 
             <div class="form-group">
-                <label for="name">Justificativa</label>
-                <%= f.text_field :status, :readonly => true, placeholder: "Digite uma justificativa para o cancelamento",:class => 'form-control' %>    
+                <label for="name">Status</label>
+                 <%= f.text_field :status, :value => (f.object.status_text if f.object.status), :readonly => true, :class => 'form-control' %>      
             </div>   
 
             <div class="form-group">
                 <label for="name">Justificativa</label>
-                <%= f.text_field :cancellation_justification, :readonly => true, placeholder: "Digite uma justificativa para o cancelamento",:class => 'form-control' %>    
+                <%= f.text_field :cancellation_justification, :readonly => true, :class => 'form-control' %>    
             </div> 
 
-            <button type="submit" class="btn btn-dark float-right" id="btnLogin" style="padding-right:20px;">Cancelar</button>
             <button type="submit" data-dismiss="modal" class="btn btn-outline-dark float-right" id="btnLogin" style="margin-right:10px;">Fechar</button>
         <% end %>
     </div>
