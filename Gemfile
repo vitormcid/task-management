@@ -9,6 +9,7 @@ gem 'rails', '~> 5.2.4'
 gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
+gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -34,7 +35,14 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.1.0', require: false
+gem 'bootsnap', require: false
+gem 'bootstrap', '~> 4.0.0'
+gem "twitter-bootstrap-rails"
+gem 'devise'
+gem 'jquery-rails'
+gem 'simple_form'
+gem 'pry', '~> 0.12.2'
+gem 'enumerize'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

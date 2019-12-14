@@ -1,0 +1,16 @@
+<%= render "style" %>
+<div class="login-page">
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="form">      
+      
+      <form class="login-form">    
+        <%= f.text_field :email, autofocus: true,value: "email", class: "form-control" %>    
+        <%= f.password_field :password, autocomplete: "off", value:"xxxxxxxxxxxx", class: "form-control" %>
+        <%= f.submit "Log in", class: "btn btn-dark"%>
+       
+        <%= render "devise/shared/links" %>
+      </form>
+    </div>
+  <% end %>  
+</div>

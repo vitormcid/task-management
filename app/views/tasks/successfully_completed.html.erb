@@ -1,0 +1,21 @@
+<div class="card card-outline-secondary">
+    <div class="card-header">
+        <h3 class="mb-0">Finalizar Tarefa</h3>
+    </div>
+    <div class="card-body">
+        <%= simple_form_for(@task, remote: request.xhr?, html: { data: { modal: true } }) do |f| %>
+            <div class="form-group">
+                <label for="name">Data de Início</label>
+                <%= f.datetime_field :start_at, :readonly => true,  placeholder: @task.start_at ,:class => 'form-control' %>                   
+            </div>
+            <div class="form-group">
+                <label for="name">Data de Término </label>
+                <%= f.datetime_field :end_at, placeholder: "Digite a data de término",:class => 'form-control' %>    
+            </div>            
+
+            <button type="submit" class="btn btn-dark float-right" id="btnLogin" style="padding-right:20px;">Finalizar</button>
+            <button type="submit" data-dismiss="modal" class="btn btn-outline-dark float-right" id="btnLogin" style="margin-right:10px;">Fechar</button>
+        <% end %>
+    </div>
+    <!--/card-body-->
+</div>
