@@ -43,6 +43,8 @@ gem 'simple_form'
 gem 'pry', '~> 0.12.2'
 gem 'enumerize'
 gem "select2-rails"
+gem 'rails_12factor', group: :production
+
 
 
 group :development, :test do
