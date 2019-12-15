@@ -1,11 +1,8 @@
-
 <%= link_to image_tag("information.png", :border=>0, :class => 'dock-item', size: "20x20").html_safe, task_path(task.id), data: { modal: true }%>
 
 <% if task.status.in_progress? %>
-
 	<%= link_to image_tag("approve_task.png", :border=>0, :class => 'dock-item', size: "20x20").html_safe, successfully_completed_task_path(task.id), data: { modal: true }%>              
 
 	<%= link_to image_tag("cancel_task.png", :border=>0, :class => 'dock-item', size: "20x20"),
 	cancelled_task_path(task.id), data: { modal: true }%>
-
 <% end %>	
