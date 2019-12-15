@@ -14,7 +14,7 @@ class TasksController < ApplicationController
   def create
     Task.transaction do 
       @task = Task.create(tasks_params)
-      @task.user_id = current_user.id
+      @task.user_id = current_user.id unless current_user.admin?
       @task.save
     end  
 

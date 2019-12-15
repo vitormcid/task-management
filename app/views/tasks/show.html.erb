@@ -6,12 +6,12 @@
         <%= simple_form_for(@task, remote: request.xhr?, html: { data: { modal: true } }) do |f| %>
             <div class="form-group">
                 <label for="name">Data de Início</label>
-                <%= f.text_field :start_at, :value => (f.object.start_at.strftime('%m/%d/%Y  %H:%M') if f.object.start_at), :readonly => true, :class => 'form-control' %>        
+                <%= f.text_field :start_at, :value => (f.object.start_at.strftime('%d/%m/%Y  %H:%M') if f.object.start_at), :readonly => true, :class => 'form-control' %>        
             </div>
 
             <div class="form-group">
                 <label for="name">Data de Término</label>
-                <%= f.text_field :end_at, :value => (f.object.end_at.strftime('%m/%d/%Y  %H:%M') if f.object.end_at), :readonly => true, :class => 'form-control' %>                   
+                <%= f.text_field :end_at, :value => (f.object.end_at.strftime('%d/%m/%Y  %H:%M') if f.object.end_at), :readonly => true, :class => 'form-control' %>                   
             </div>
 
             <div class="form-group">
