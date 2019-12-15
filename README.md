@@ -12,5 +12,6 @@
 - O sistema está disponível na web através do seguinte link:
 https://intranett-challenge.herokuapp.com
 
+- O Projeto deve ser executado no chrome para melhor performace
 
 
