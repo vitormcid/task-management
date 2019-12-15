@@ -12,8 +12,8 @@ class Task < ApplicationRecord
 	end	
 
 	def start_at_greater_current_date
-		return unless start_at.present?
-		if start_at.to_date < DateTime.current
+		return unless start_at.present?	
+		if start_at.to_datetime < DateTime.current - 3.hours
 			self.errors[:base] << "A data de início deve ser maior que a data atual"
 		end	
 	end	
