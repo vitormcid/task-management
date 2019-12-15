@@ -6,4 +6,13 @@ class ApplicationController < ActionController::Base
     	options[:responder] = ModalResponder
     	respond_with *args, options, &blk
  	end
+
+ 	def authenticate_admin!
+  		authenticate_user!
+
+  		unless current_user.admin?
+	  		flash[:alert] = "Apenas administradores podem acessar essa página"
+	  		redirect_to tasks_path status: :forbidden 
+	  	end	
+	end
 end

@@ -9,16 +9,41 @@
   </head>
 
   <body>
-   <nav class="navbar fixed-top navbar-dark bg-dark">    
-     <%= link_to image_tag("task_logo_white.jpeg", :border=>0, :class => 'dock-item', size: "40x40") %>
-      <a class="navbar-brand " href="#">Intranett - Gerenciamento de Tarefas</a>
-      <span class="navbar-text">
+    <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-dark">
+        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                 <%= link_to image_tag("team.png", :border=>0, :class => 'dock-item', size: "40x40") %>
+                </li>
+                <li class="nav-item" style="padding-left:30px;">
+                    <a class="nav-link active" href="/teams">Equipes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/tasks">Tarefas</a>
+                </li>               
+            </ul>
+        </div>
+        <div class="mx-auto order-0">
+            <a class="navbar-brand mx-auto" href="#">Intranett- Gerenciador de Tarefas</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+
         <% if current_user.present? %>
-          <%="#{current_user.email} - "%>
-          <%= link_to('Deslogar', destroy_user_session_path, method: :delete) %>  
+          <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+              <ul class="navbar-nav ml-auto">
+               <li class="nav-item">
+                 <a class="nav-link" href="#">  <%="#{current_user.email} - "%></a>
+               </li>
+               <li class="nav-item">                 
+                 <%= link_to image_tag("sign_out.png", :border=>0, :class => 'dock-item', size: "40x40"),destroy_user_session_path, method: :delete %>             
+               </li>
+              </ul>
+          </div>
         <% end %>  
-      </span>
-   </nav>
+    </nav>
+   
 
    <div id = "alert" style="margin-top:60px;">
     <% if notice %>

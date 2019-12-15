@@ -8,6 +8,7 @@
             <tr>                
                 <th>Id</th>               
                 <th>Nome</th>               
+                <th>Equipe</th>               
                 <th>Data de Início</th>
                 <th>Data de Término</th>
                 <th>Justificativa do cancelamento</th>
@@ -21,6 +22,7 @@
                 <tr>
                     <td><%=task.id%></td>               
                     <td><%=task.name%></td>               
+                    <td><%=task.team&.name%></td>               
                     <td><%=task.start_at&.strftime("%d/%m/%y %H:%M")%></td>               
                     <td><%=task.end_at&.strftime("%d/%m/%y %H:%M")%></td>               
                     <td><%=task.cancellation_justification%></td>               
@@ -36,6 +38,7 @@
         <tfoot>
             <th>Id</th>               
             <th>Nome</th>               
+            <th>Equipe</th>               
             <th>Data de Início</th>
             <th>Data de Término</th>
             <th>Justificativa do cancelamento</th>

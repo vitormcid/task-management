@@ -1,6 +1,7 @@
 class Task < ApplicationRecord
 	extend Enumerize
 	belongs_to :user, foreign_key: 'user_id', required: false
+	belongs_to :team, foreign_key: 'team_id', required:false
 	enumerize :status, in: [:in_progress, :finished, :canceled], default: :in_progress
 	validates :name, :start_at , presence: true
 	validate  :start_at_greater_current_date

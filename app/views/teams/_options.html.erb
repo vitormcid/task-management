@@ -1,0 +1,5 @@
+<%= link_to image_tag("edit.jpeg", :border=>0, :class => 'dock-item', size: "30x20").html_safe, edit_team_path(team.id), data: { modal: true }%>
+
+<%= link_to image_tag("delete.png", :border=>0, :class => 'dock-item', size: "25x25").html_safe, team_path(team.id),:method=>"delete", :onclick => 'confirm("Você tem certeza que deseja excluir esse time?")'%>
+
+

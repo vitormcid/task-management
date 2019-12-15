@@ -1,0 +1,46 @@
+<div style="text-align:right;">
+    <%= link_to "Novo Time - #{image_tag("create_task.png", :border=>0, :class => 'dock-item', size: "40x40")}".html_safe,new_team_path, data: { modal: true }%>
+</div>    
+<hr>
+<table id="teams" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>                
+                <th>Id</th>               
+                <th>Nome</th>          
+                <th>Administrador</th>          
+                <th>Colaboradores</th>          
+                <th>Opções</th>               
+            </tr>
+        </thead>
+        <tbody>
+            <% @teams.each do |team| %>
+                <tr>
+                    <td><%=team.id%></td>               
+                    <td><%=team.name%></td>               
+                    <td><%=team.admin&.email%></td>               
+                    <td><%=team.users.pluck(:email) if team.users.present?%></td>                             
+                    <td><%=render "options", team: team%></td>                                 
+                </tr> 
+            <% end %>    
+           
+        </tbody>
+        <tfoot>
+            <th>Id</th>               
+            <th>Nome</th>          
+            <th>Administrador</th>          
+            <th>Colaboradores</th>          
+            <th>Opções</th>         
+        </tfoot>
+    </table>                
+ 
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#teams').DataTable( {
+            "lengthMenu": [[10, 15 ,25, 50, -1], [10, 15, 25, 50, "All"]],
+            "ordering": false
+        }
+        );      
+      
+    });
+</script>

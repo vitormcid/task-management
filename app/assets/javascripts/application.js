@@ -17,4 +17,5 @@
 //= require bootstrap
 //= require activestorage
 //= require turbolinks
+//= require select2
 //= require_tree .

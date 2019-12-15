@@ -9,6 +9,10 @@
                 <%= f.text_field :name, placeholder: "Digite o nome da sua tarefa...",:class => 'form-control',required:true %>                   
             </div>
             <div class="form-group">
+                <label for="name">Equipe</label>
+                <%= select("task", "team_id", @scoped_teams.collect {|p| [ p.name, p.id ] },{}, { class:"form-control select"}) %>             
+            </div>
+            <div class="form-group">
                 <label for="name">Data de Início </label>
                 <%= f.datetime_field :start_at, placeholder: "Digite a data de início da sua tarefa...",:class => 'form-control', required:true %>               
             </div> 

@@ -15,6 +15,11 @@
             </div>
 
             <div class="form-group">
+                <label for="name">Equipe</label>
+                <%= f.text_field :team, :value => (f.object.team&.name if f.object.team), :readonly => true, :class => 'form-control' %>                
+            </div>
+
+            <div class="form-group">
                 <label for="name">Status</label>
                  <%= f.text_field :status, :value => (f.object.status_text if f.object.status), :readonly => true, :class => 'form-control' %>      
             </div>   
